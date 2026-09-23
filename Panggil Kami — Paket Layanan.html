@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Panggil Kami - Jasa Titip & Bantuan Urusan Rumah di Solo</title>
+<meta name="description" content="Laundry solo, jastip solo, bersih kamar solo, bantuan anak kos solo. Pesan lewat WhatsApp, beres tanpa ribet.">
+<meta name="theme-color" content="#2563EB">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Panggil Kami",
+  "description": "Jasa titip, laundry, bersih kamar, dan belanja untuk mahasiswa dan warga Solo.",
+  "areaServed": "Solo, Jawa Tengah",
+  "priceRange": "Rp8.000 - Rp50.000"
+}
+</script>
+<style>
+  :root{
+    --blue:#2563EB; --blue-dark:#1D4ED8; --blue-pastel:#DBEAFE;
+    --bg:#FFFFFF; --bg-alt:#F0F6FF;
+    --navy:#0F172A; --gray:#64748B; --border:#E2E8F0;
+    --radius:20px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth; scroll-padding-top:76px;}
+  body{font-family:'Inter',system-ui,sans-serif; color:var(--navy); background:var(--bg);
+       padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);}
+  h1,h2,h3,.logo{font-family:'Plus Jakarta Sans',sans-serif;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1140px; margin:0 auto; padding:0 24px;}
+  :focus-visible{outline:2px solid var(--blue-dark); outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){ *{animation-duration:.001ms !important; transition-duration:.001ms !important;} }
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* NAVBAR */
+  header{position:sticky; top:0; top:env(safe-area-inset-top,0px); z-index:50;
+         background:rgba(255,255,255,.7); backdrop-filter:blur(12px); border-bottom:1px solid transparent;
+         transition:background .25s ease, border-color .25s ease;}
+  header.scrolled{background:rgba(255,255,255,.92); border-color:var(--border);}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1140px; margin:0 auto;}
+  .logo{font-weight:800; font-size:1.2rem; display:flex; align-items:center; gap:8px;}
+  .logo-mark{width:30px; height:30px; border-radius:9px; background:var(--blue); display:flex; align-items:center; justify-content:center;}
+  .nav-links{display:none; gap:32px; font-size:.95rem; font-weight:500; color:var(--gray);}
+  .nav-links a:hover{color:var(--navy);}
+  @media(min-width:900px){ .nav-links{display:flex;} }
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 24px;
+       border-radius:999px; font-weight:600; font-size:.95rem; border:1.5px solid transparent; cursor:pointer;
+       transition:transform .15s ease, background .15s ease;}
+  .btn:active{transform:scale(.97);}
+  .btn-solid{background:var(--blue); color:#fff;}
+  .btn-solid:hover{background:var(--blue-dark);}
+  .btn-outline{background:transparent; border-color:var(--blue); color:var(--blue-dark);}
+  .btn-outline:hover{background:var(--blue-pastel);}
+  .nav-cta{display:none;}
+  @media(min-width:900px){ .nav-cta{display:inline-flex;} }
+  .hamburger{display:flex; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px;}
+  .hamburger span{width:22px; height:2px; background:var(--navy);}
+  @media(min-width:900px){ .hamburger{display:none;} }
+  .mobile-panel{display:none; flex-direction:column; padding:6px 24px 18px; border-top:1px solid var(--border);}
+  .mobile-panel.open{display:flex;}
+  .mobile-panel a{padding:12px 4px; font-weight:500; color:var(--gray); border-bottom:1px solid var(--border);}
+  .mobile-panel .btn{margin-top:14px;}
+
+  /* HERO */
+  .hero{position:relative; overflow:hidden; padding:60px 0 76px;}
+  .hero .wrap{display:grid; grid-template-columns:1fr; gap:36px; align-items:center;}
+  @media(min-width:920px){ .hero .wrap{grid-template-columns:1.05fr .95fr;} }
+  .badge{display:inline-flex; align-items:center; gap:6px; background:var(--blue-pastel); color:var(--blue-dark);
+         font-weight:600; font-size:.82rem; padding:7px 16px; border-radius:999px; margin-bottom:20px;}
+  h1{font-size:clamp(2rem,4.6vw,2.9rem); font-weight:800; line-height:1.16; letter-spacing:-.01em; max-width:13ch;}
+  .hero p.sub{margin-top:16px; font-size:1.05rem; line-height:1.6; color:var(--gray); max-width:46ch;}
+  .hero-ctas{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px;}
+  @media(max-width:480px){ .hero-ctas{flex-direction:column;} .hero-ctas .btn{width:100%;} }
+  .hero-art{position:relative; aspect-ratio:1/1; max-width:400px; margin:0 auto;}
+
+  section{padding:68px 0;}
+  .alt{background:var(--bg-alt);}
+  .section-head{max-width:54ch; margin-bottom:34px;}
+  .section-head h2{font-size:clamp(1.5rem,3.2vw,2rem); font-weight:800; letter-spacing:-.01em;}
+  .section-head p{margin-top:8px; color:var(--gray); font-size:1rem;}
+
+  /* PACKAGES */
+  .packages-grid{display:grid; grid-template-columns:1fr; gap:18px;}
+  @media(min-width:640px){ .packages-grid{grid-template-columns:1fr 1fr;} }
+  @media(min-width:1020px){ .packages-grid{grid-template-columns:repeat(4,1fr);} }
+  .pkg-card{background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:26px 22px;
+            display:flex; flex-direction:column; transition:transform .18s ease, box-shadow .18s ease;}
+  .pkg-card:hover{transform:translateY(-8px); box-shadow:0 20px 38px -20px rgba(29,78,216,.28);}
+  .pkg-card .tag{display:inline-block; align-self:flex-start; background:var(--blue-pastel); color:var(--blue-dark);
+                  font-size:.76rem; font-weight:700; padding:4px 12px; border-radius:999px; margin-bottom:14px;}
+  .pkg-card h3{font-size:1.1rem; font-weight:700; margin-bottom:8px;}
+  .pkg-card p{color:var(--gray); font-size:.92rem; line-height:1.55; flex:1;}
+  .pkg-card .price{font-weight:800; color:var(--navy); font-size:1.15rem; margin:14px 0 16px;}
+  .pkg-card .price span{font-weight:500; font-size:.78rem; color:var(--gray);}
+  .pkg-btn{width:100%; padding:11px; border-radius:12px; background:var(--blue); color:#fff; font-weight:600;
+           font-size:.9rem; border:none; cursor:pointer; transition:background .15s ease;}
+  .pkg-btn:hover{background:var(--blue-dark);}
+
+  /* SERVICES ICON GRID */
+  .icons-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; text-align:center;}
+  @media(min-width:700px){ .icons-grid{grid-template-columns:repeat(5,1fr);} }
+  .icon-item{padding:22px 12px; border-radius:16px; transition:background .15s ease;}
+  .icon-item:hover{background:var(--bg-alt);}
+  .icon-item .ic{width:52px; height:52px; margin:0 auto 12px; border-radius:14px; background:var(--blue-pastel);
+                  display:flex; align-items:center; justify-content:center;}
+  .icon-item span{font-size:.88rem; font-weight:600;}
+
+  /* HOW IT WORKS */
+  .steps{display:grid; grid-template-columns:1fr; gap:28px; counter-reset:step;}
+  @media(min-width:760px){ .steps{grid-template-columns:repeat(3,1fr);} }
+  .step{position:relative; padding-left:52px;}
+  .step::before{counter-increment:step; content:counter(step); position:absolute; left:0; top:0;
+                width:38px; height:38px; border-radius:50%; background:var(--blue); color:#fff; font-weight:700;
+                font-family:'Plus Jakarta Sans',sans-serif; display:flex; align-items:center; justify-content:center; font-size:1rem;}
+  .step h3{font-size:1.03rem; font-weight:700; margin-bottom:6px;}
+  .step p{color:var(--gray); font-size:.92rem; line-height:1.5;}
+
+  /* TESTIMONIALS */
+  .testi-grid{display:grid; grid-template-columns:1fr; gap:18px;}
+  @media(min-width:760px){ .testi-grid{grid-template-columns:repeat(3,1fr);} }
+  .testi-card{background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:24px;}
+  .testi-card p.quote{font-size:.95rem; line-height:1.6; color:var(--navy); margin-bottom:16px;}
+  .testi-who{display:flex; align-items:center; gap:10px;}
+  .avatar{width:38px; height:38px; border-radius:50%; background:var(--blue-pastel); color:var(--blue-dark);
+          display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.85rem;}
+  .testi-who div strong{display:block; font-size:.88rem;}
+  .testi-who div span{font-size:.78rem; color:var(--gray);}
+
+  /* FAQ */
+  .faq{max-width:760px;}
+  .faq-item{border-bottom:1px solid var(--border);}
+  .faq-q{width:100%; display:flex; justify-content:space-between; align-items:center; gap:16px;
+         padding:18px 4px; background:none; border:none; cursor:pointer; text-align:left;
+         font-weight:600; font-size:.98rem; color:var(--navy);}
+  .faq-q .plus{transition:transform .2s ease; flex-shrink:0; color:var(--blue);}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+  .faq-a p{padding:0 4px 18px; color:var(--gray); font-size:.92rem; line-height:1.6;}
+
+  /* FOOTER */
+  footer{background:var(--navy); color:#CBD5E1; padding:44px 0 26px;}
+  .footer-top{display:flex; flex-wrap:wrap; justify-content:space-between; gap:28px; padding-bottom:28px; border-bottom:1px solid rgba(255,255,255,.12);}
+  footer .logo{color:#fff;}
+  .footer-desc{max-width:34ch; color:#94A3B8; font-size:.9rem; margin-top:10px; line-height:1.55;}
+  .footer-col h4{font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; color:#7C93B0; margin-bottom:12px; font-weight:600;}
+  .footer-col a{display:block; font-size:.9rem; color:#CBD5E1; margin-bottom:9px;}
+  .footer-col a:hover{color:#93B4FA;}
+  .footer-links{display:flex; gap:44px; flex-wrap:wrap;}
+  .footer-bottom{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; padding-top:20px; font-size:.82rem; color:#7C93B0;}
+
+  .float-wa{position:fixed; right:20px; bottom:calc(20px + env(safe-area-inset-bottom,0px)); z-index:60;
+            width:58px; height:58px; border-radius:50%; background:#25D366;
+            display:flex; align-items:center; justify-content:center; box-shadow:0 10px 24px -6px rgba(0,0,0,.3);
+            transition:transform .15s ease;}
+  .float-wa:hover{transform:scale(1.06);}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav>
+    <a href="#" class="logo"><span class="logo-mark">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 12l6 6L20 6"/></svg>
+    </span>Panggil Kami</a>
+    <div class="nav-links">
+      <a href="#paket">Paket</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#cara-kerja">Cara Kerja</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="https://wa.me/6281234567890?text=Halo%20Panggil%20Kami%2C%20saya%20mau%20tanya-tanya" class="btn btn-solid nav-cta">Chat Sekarang</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Buka menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#paket">Paket</a>
+    <a href="#layanan">Layanan</a>
+    <a href="#cara-kerja">Cara Kerja</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://wa.me/6281234567890" class="btn btn-solid">Chat Sekarang</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="badge">📍 Melayani area Solo</span>
+        <h1>Urusan rumah beres, kuliah dan kerja tetap jalan.</h1>
+        <p class="sub">Laundry, bersih kamar, belanja, sampai jastip — pilih paketnya, chat WhatsApp, tinggal tunggu beres. Harga jelas dari awal, nggak ada checkout ribet.</p>
+        <div class="hero-ctas">
+          <a href="#paket" class="btn btn-solid">Lihat Paket Layanan</a>
+          <a href="https://wa.me/6281234567890?text=Halo%20Panggil%20Kami%2C%20saya%20mau%20tanya-tanya" class="btn btn-outline">Chat Langsung</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#DBEAFE" d="M320,60 C370,110 390,180 370,250 C350,320 280,370 200,375 C120,380 50,330 30,255 C10,180 40,100 105,55 C170,10 270,10 320,60 Z"/>
+          <g transform="translate(85,95)">
+            <rect x="0" y="30" width="250" height="160" rx="22" fill="#FFFFFF" stroke="#2563EB" stroke-width="3"/>
+            <circle cx="125" cy="0" r="30" fill="#2563EB"/>
+            <rect x="26" y="72" width="198" height="14" rx="7" fill="#DBEAFE"/>
+            <rect x="26" y="98" width="140" height="14" rx="7" fill="#DBEAFE"/>
+            <rect x="26" y="148" width="96" height="30" rx="15" fill="#2563EB"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="paket" class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Paket Layanan</h2>
+        <p>Harga transparan dari awal, tinggal pilih paket yang cocok buat kamu.</p>
+      </div>
+      <div class="packages-grid">
+        <div class="pkg-card reveal">
+          <span class="tag">Laundry</span>
+          <h3>Paket Laundry Hemat</h3>
+          <p>Cuci, kering, lipat — pakaian wangi tanpa perlu keluar kos, minimal 3kg.</p>
+          <div class="price">Rp15.000 <span>/ 3kg</span></div>
+          <button class="pkg-btn" onclick="orderPackage('Paket Laundry Hemat (Rp15.000/3kg)')">Pesan Paket</button>
+        </div>
+        <div class="pkg-card reveal">
+          <span class="tag">Bersih Kamar</span>
+          <h3>Paket Kamar Kinclong</h3>
+          <p>Sapu, pel, rapikan tempat tidur, dan lap debu — kamar nyaman buat belajar.</p>
+          <div class="price">Rp30.000 <span>/ sesi</span></div>
+          <button class="pkg-btn" onclick="orderPackage('Paket Kamar Kinclong (Rp30.000/sesi)')">Pesan Paket</button>
+        </div>
+        <div class="pkg-card reveal">
+          <span class="tag">Belanja</span>
+          <h3>Paket Belanja Kilat</h3>
+          <p>Titip belanja kebutuhan harian, sayur, atau snack, diantar langsung ke kos.</p>
+          <div class="price">Rp10.000 <span>/ order</span></div>
+          <button class="pkg-btn" onclick="orderPackage('Paket Belanja Kilat (Rp10.000/order)')">Pesan Paket</button>
+        </div>
+        <div class="pkg-card reveal">
+          <span class="tag">Jastip</span>
+          <h3>Paket Jastip Semua Bisa</h3>
+          <p>Titip beli makanan, obat, atau ambil paket dari mana saja di Solo.</p>
+          <div class="price">Rp8.000 <span>/ order</span></div>
+          <button class="pkg-btn" onclick="orderPackage('Paket Jastip Semua Bisa (Rp8.000/order)')">Pesan Paket</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="layanan">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Layanan Kami</h2>
+        <p>Navigasi cepat ke layanan yang kamu cari.</p>
+      </div>
+      <div class="icons-grid">
+        <a href="#paket" class="icon-item reveal">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="13" r="5"/><circle cx="12" cy="13" r="2"/></svg></span>
+          <span>Laundry</span>
+        </a>
+        <a href="#paket" class="icon-item reveal">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8"><path d="M4 20l4-9 4 4 4-11 4 16"/></svg></span>
+          <span>Bersih Kamar</span>
+        </a>
+        <a href="#paket" class="icon-item reveal">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M2 3h2l2.6 12.4a2 2 0 002 1.6h8.8a2 2 0 002-1.6L21 7H6"/></svg></span>
+          <span>Belanja</span>
+        </a>
+        <a href="#paket" class="icon-item reveal">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg></span>
+          <span>Jastip</span>
+        </a>
+        <a href="#faq" class="icon-item reveal">
+          <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 01-8.9 8.4 8.5 8.5 0 01-4.1-1L3 20l1.1-4.9A8.4 8.4 0 1121 11.5z"/></svg></span>
+          <span>Lainnya, tanya dulu</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="cara-kerja" class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Cuma 3 langkah mudah</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><h3>Pilih Paket</h3><p>Lihat paket layanan yang kamu butuhkan di atas.</p></div>
+        <div class="step reveal"><h3>Chat WhatsApp</h3><p>Klik "Pesan Paket", pesan otomatis terisi, tinggal kirim.</p></div>
+        <div class="step reveal"><h3>Beres!</h3><p>Admin proses pesananmu, kamu tinggal santai.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimoni">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Kata Mereka</h2>
+        <p>Cerita dari mahasiswa dan warga Solo yang sudah pakai Panggil Kami.</p>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <p class="quote">"Laundry-nya cepet banget, chat pagi sore udah beres. Enak buat anak kos sibuk kayak aku."</p>
+          <div class="testi-who"><span class="avatar">DA</span><div><strong>Dinda A.</strong><span>Mahasiswa, Kentingan</span></div></div>
+        </div>
+        <div class="testi-card reveal">
+          <p class="quote">"Pesan bersih kamar pas lagi banyak tugas, hasilnya rapi dan harganya jelas dari awal."</p>
+          <div class="testi-who"><span class="avatar">RF</span><div><strong>Rafi F.</strong><span>Mahasiswa, Jebres</span></div></div>
+        </div>
+        <div class="testi-card reveal">
+          <p class="quote">"Jastip obat tengah malam masih direspon cepat. Sangat membantu buat yang kerja shift."</p>
+          <div class="testi-who"><span class="avatar">SN</span><div><strong>Sinta N.</strong><span>Karyawan, Solo Baru</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Pertanyaan Umum</h2>
+      </div>
+      <div class="faq reveal">
+        <div class="faq-item">
+          <button class="faq-q">Area mana saja yang dilayani Panggil Kami?<span class="plus">＋</span></button>
+          <div class="faq-a"><p>Saat ini kami melayani seluruh area Solo dan sekitarnya, termasuk Kentingan, Jebres, dan Solo Baru.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Bagaimana cara bayarnya?<span class="plus">＋</span></button>
+          <div class="faq-a"><p>Pembayaran bisa cash saat barang diambil/diantar, atau transfer sesuai kesepakatan lewat chat WhatsApp.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Berapa lama estimasi pengerjaan?<span class="plus">＋</span></button>
+          <div class="faq-a"><p>Laundry biasanya selesai dalam 1 hari, bersih kamar dan belanja/jastip diproses di hari yang sama.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Apakah bisa pesan di luar jam kerja?<span class="plus">＋</span></button>
+          <div class="faq-a"><p>Bisa kirim chat kapan saja, admin akan membalas secepatnya di jam operasional berikutnya.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a href="#" class="logo"><span class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M4 12l6 6L20 6"/></svg></span>Panggil Kami</a>
+        <p class="footer-desc">Jasa titip dan bantuan urusan rumah untuk mahasiswa dan warga Solo — laundry, bersih kamar, belanja, dan jastip lewat chat.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigasi</h4>
+          <a href="#paket">Paket</a>
+          <a href="#cara-kerja">Cara Kerja</a>
+          <a href="#testimoni">Testimoni</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <a href="https://wa.me/6281234567890">WhatsApp</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Panggil Kami. Solo, Jawa Tengah.</span>
+      <span>Dibuat dengan ❤️ untuk kota Solo.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6281234567890?text=Halo%20Panggil%20Kami%2C%20saya%20mau%20tanya-tanya" class="float-wa" aria-label="Chat WhatsApp" id="floatWa">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3C4.2 15 3.8 13.5 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></svg>
+</a>
+
+<script>
+  const WA_NUMBER = "6281234567890";
+
+  function orderPackage(pkgName){
+    const msg = "Halo Panggil Kami, saya mau pesan " + pkgName + ". Bisa dibantu prosesnya?";
+    window.open("https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg), "_blank");
+  }
+
+  // hamburger
+  const hbtn = document.getElementById('hamburgerBtn');
+  const panel = document.getElementById('mobilePanel');
+  hbtn.addEventListener('click', () => {
+    const open = panel.classList.toggle('open');
+    hbtn.setAttribute('aria-expanded', open);
+  });
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    panel.classList.remove('open'); hbtn.setAttribute('aria-expanded','false');
+  }));
+
+  // sticky header glass on scroll
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 12);
+  });
+
+  // faq accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => {
+        if(o !== item){ o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null; }
+      });
+      item.classList.toggle('open', !isOpen);
+      a.style.maxHeight = !isOpen ? a.scrollHeight + 'px' : null;
+    });
+  });
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
